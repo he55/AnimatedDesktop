@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D14877A722339DC600FB5279 /* HUMApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D14877A622339DC600FB5279 /* HUMApplication.m */; };
 		D1FDDB62223398B7006AA6A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDB61223398B7006AA6A1 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D14877A522339DC600FB5279 /* HUMApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUMApplication.h; sourceTree = "<group>"; };
+		D14877A622339DC600FB5279 /* HUMApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUMApplication.m; sourceTree = "<group>"; };
 		D1FDDB5E223398B7006AA6A1 /* AnimatedDesktop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AnimatedDesktop; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FDDB61223398B7006AA6A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				D1FDDB61223398B7006AA6A1 /* main.m */,
+				D14877A522339DC600FB5279 /* HUMApplication.h */,
+				D14877A622339DC600FB5279 /* HUMApplication.m */,
 			);
 			path = AnimatedDesktop;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FDDB62223398B7006AA6A1 /* main.m in Sources */,
+				D14877A722339DC600FB5279 /* HUMApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
