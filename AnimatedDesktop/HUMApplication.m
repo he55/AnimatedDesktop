@@ -35,6 +35,14 @@
     return [self new];
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.videoPath = @"";
+        self.muted = YES;
+    }
+    return self;
+}
+
 - (instancetype)initWithVideoPath:(NSString *)videoPath {
     if (self = [super init]) {
         self.videoPath = videoPath;
