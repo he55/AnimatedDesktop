@@ -65,7 +65,7 @@ static void killapp(void) {
     NSPipe *pipe = [NSPipe new];
     NSTask *task = [NSTask new];
     task.executableURL = [NSURL fileURLWithPath:@"/bin/bash"];
-    task.arguments = @[@"-c", @"ps axu | grep 'AnimatedDesktop=1100' | grep -v 'grep' | awk '{print $2}'"];
+    task.arguments = @[@"-c", @"ps ax -o pid,command | grep 'AnimatedDesktop=1100' | grep -v 'grep' | awk '{print $1}'"];
     task.standardOutput = pipe;
     
     [task launch];
