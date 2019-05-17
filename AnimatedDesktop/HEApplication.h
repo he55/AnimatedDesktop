@@ -1,16 +1,16 @@
 //
-//  HUMApplication.h
+//  HEApplication.h
 //  AnimatedDesktop
 //
-//  Created by 何伟忠 on 2019/3/9.
-//  Copyright © 2019 hummer. All rights reserved.
+//  Created by He55 on 2019/3/9.
+//  Copyright © 2019 He55. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HUMApplication : NSObject
+@interface HEApplication : NSObject
 
 @property (nonatomic, copy) NSString *videoPath;
 @property (nonatomic, getter=isMuted) BOOL muted;

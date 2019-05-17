@@ -46,7 +46,8 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
+      useCustomWorkingDirectory = "YES"
+      customWorkingDirectory = "/Users/he55/Desktop"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -63,11 +64,15 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/ihello/Downloads/&#x5b66;&#x4e60;&#x89c6;&#x9891;/2016&#x5e74;&#x6700;&#x65b0;iOS&#x6559;&#x7a0b;/2016&#x5e74;&#x6700;&#x65b0;C&#x8bed;&#x8a00;&#x6559;&#x7a0b;/Day01-&#x5f00;&#x53d1;&#x524d;&#x594f;/01\ &#x8bfe;&#x7a0b;&#x4ecb;&#x7ecd;.mp4"
+            argument = "play"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--AnimatedDesktop=1100"
+            argument = "/Users/he55/Downloads/v.mp4"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "mode=isBackground"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
