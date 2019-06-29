@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HEConfig.h"
-#import "HEApplication.h"
+#import "HEPrint.h"
+#import "HEAnimatedDesktop.h"
 
 static BOOL appRun(void);
 static void printHelp(void);
@@ -54,7 +55,7 @@ int main(int argc, const char * argv[]) {
         
         NSString *videoPath = @(argv[2]);
         if (![fileManager fileExistsAtPath:videoPath]) {
-            NSLog(@"文件 \"%@\" 不存在。", videoPath);
+            HEPrintln(@"File \"%@\" does not exist.", videoPath);
             return -1;
         }
         
@@ -80,8 +81,9 @@ int main(int argc, const char * argv[]) {
         }
         
         // 创建动态桌面
-        HEApplication *app = [HEApplication applicationWithVideoPath:videoPath];
-        [app runAnimatedDesktop];
+        HEAnimatedDesktop *animatedDesktop = [HEAnimatedDesktop sharedAnimatedDesktop];
+        animatedDesktop.videoPath = videoPath;
+        [animatedDesktop runAnimatedDesktop];
     }
     return 0;
 }
@@ -109,9 +111,9 @@ static BOOL appRun(void) {
     [task waitUntilExit];
     
     NSData *data = [fileHandle readDataToEndOfFile];
-    NSString *pidsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSArray<NSString *> *pidStringArray = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] componentsSeparatedByString:@"\n"];
     
-    for (NSString *pidString in [pidsString componentsSeparatedByString:@"\n"]) {
+    for (NSString *pidString in pidStringArray) {
         int opid = pidString.intValue;
         if (opid != 0 && opid != pid) {
             return YES;
@@ -121,5 +123,5 @@ static BOOL appRun(void) {
 }
 
 static void printHelp(void) {
-    NSLog(@"传入参数错误。");
+    HEPrintln(@"arguments error.");
 }

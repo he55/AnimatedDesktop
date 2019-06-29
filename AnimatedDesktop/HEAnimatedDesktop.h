@@ -1,5 +1,5 @@
 //
-//  HEApplication.h
+//  HEAnimatedDesktop.h
 //  AnimatedDesktop
 //
 //  Created by He55 on 2019/3/9.
@@ -10,16 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HEApplication : NSObject
+@interface HEAnimatedDesktop : NSObject
 
 @property (nonatomic, copy) NSString *videoPath;
 @property (nonatomic, getter=isMuted) BOOL muted;
 
-+ (instancetype)application;
-
-- (instancetype)initWithVideoPath:(NSString *)videoPath;
-+ (instancetype)applicationWithVideoPath:(NSString *)videoPath;
-
++ (instancetype)sharedAnimatedDesktop;
 - (void)runAnimatedDesktop;
 
 @end

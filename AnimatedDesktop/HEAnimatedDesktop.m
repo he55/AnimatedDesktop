@@ -1,5 +1,5 @@
 //
-//  HEApplication.m
+//  HEAnimatedDesktop.m
 //  AnimatedDesktop
 //
 //  Created by He55 on 2019/3/9.
@@ -9,11 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import <AVKit/AVKit.h>
 #import "HEConfig.h"
-#import "HEApplication.h"
+#import "HEPrint.h"
+#import "HEAnimatedDesktop.h"
 
-@interface HEApplication () {
-    
-}
+@interface HEAnimatedDesktop ()
 
 @property (nonatomic) NSWindow *window;
 @property (nonatomic) AVPlayerView *playerView;
@@ -25,19 +24,20 @@
 
 @end
 
-@implementation HEApplication
+@implementation HEAnimatedDesktop
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    static id instance = nil;
++ (instancetype)sharedAnimatedDesktop {
+    static id sharedInstance = nil;
     static dispatch_once_t onceToken;
+    
     dispatch_once(&onceToken, ^{
-        instance = [super allocWithZone:zone];
+        sharedInstance = [[super allocWithZone:NULL] init];
     });
-    return instance;
+    return sharedInstance;
 }
 
-+ (instancetype)application {
-    return [self new];
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    return [self sharedAnimatedDesktop];
 }
 
 - (instancetype)init {
@@ -46,18 +46,6 @@
         self.muted = YES;
     }
     return self;
-}
-
-- (instancetype)initWithVideoPath:(NSString *)videoPath {
-    if (self = [super init]) {
-        self.videoPath = videoPath;
-        self.muted = YES;
-    }
-    return self;
-}
-
-+ (instancetype)applicationWithVideoPath:(NSString *)videoPath {
-    return [[self alloc] initWithVideoPath:videoPath];
 }
 
 - (void)runAnimatedDesktop {
@@ -99,17 +87,17 @@
 - (void)loopNotify:(NSNotification *)notification {
     NSString *object = notification.object;
     NSArray<NSString *> *args = [object componentsSeparatedByString:kHEArgumentSeparator];
-    NSUInteger argCount = args.count;
+    NSUInteger argsCount = args.count;
     NSString *cmdMode = args[0];
     
-    NSLog(@"name = \"%@\"", notification.name);
-    NSLog(@"object = \"%@\"", object);
+    HEPrintln(@"name = \"%@\"", notification.name);
+    HEPrintln(@"object = \"%@\"", object);
     
     // 命令处理
     if ([cmdMode isEqualToString:@"play"]) {
-        if (argCount == 1) {
+        if (argsCount == 1) {
             [self.player play];
-        } else if (argCount == 2) {
+        } else if (argsCount == 2) {
             NSString *videoPath = args[1];
             if (![[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {
                 return;
@@ -118,23 +106,23 @@
             [self.player replaceCurrentItemWithPlayerItem:playerItem];
         }
     } else if ([cmdMode isEqualToString:@"pause"]) {
-        if (argCount == 1) {
+        if (argsCount == 1) {
             [self.player pause];
         }
     } else if ([cmdMode isEqualToString:@"volume"]) {
-        if (argCount == 1) {
+        if (argsCount == 1) {
             self.player.volume = 1.0;
-        } else if (argCount == 2) {
+        } else if (argsCount == 2) {
             self.player.volume = args[1].floatValue;
         }
     } else if ([cmdMode isEqualToString:@"muted"]) {
-        if (argCount == 1) {
+        if (argsCount == 1) {
             self.player.muted = !self.player.isMuted;
-        } else if (argCount == 2) {
+        } else if (argsCount == 2) {
             self.player.muted = args[1].boolValue;
         }
     } else if ([cmdMode isEqualToString:@"exit"]) {
-        if (argCount == 1) {
+        if (argsCount == 1) {
             exit(EXIT_SUCCESS);
         }
     }

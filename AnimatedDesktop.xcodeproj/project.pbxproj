@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D14877A722339DC600FB5279 /* HEApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D14877A622339DC600FB5279 /* HEApplication.m */; };
+		D14877A722339DC600FB5279 /* HEAnimatedDesktop.m in Sources */ = {isa = PBXBuildFile; fileRef = D14877A622339DC600FB5279 /* HEAnimatedDesktop.m */; };
 		D1FDDB62223398B7006AA6A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDB61223398B7006AA6A1 /* main.m */; };
+		E293ADE722C7E6AA00D69614 /* HEPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E293ADE522C7E6AA00D69614 /* HEPrint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D14877A522339DC600FB5279 /* HEApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEApplication.h; sourceTree = "<group>"; };
-		D14877A622339DC600FB5279 /* HEApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEApplication.m; sourceTree = "<group>"; };
+		D14877A522339DC600FB5279 /* HEAnimatedDesktop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEAnimatedDesktop.h; sourceTree = "<group>"; };
+		D14877A622339DC600FB5279 /* HEAnimatedDesktop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEAnimatedDesktop.m; sourceTree = "<group>"; };
 		D1FDDB5E223398B7006AA6A1 /* AnimatedDesktop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AnimatedDesktop; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FDDB61223398B7006AA6A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E29230CD22832CF800C0E5AF /* HEConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEConfig.h; sourceTree = "<group>"; };
+		E293ADE522C7E6AA00D69614 /* HEPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEPrint.m; sourceTree = "<group>"; };
+		E293ADE622C7E6AA00D69614 /* HEPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEPrint.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				D1FDDB61223398B7006AA6A1 /* main.m */,
-				D14877A522339DC600FB5279 /* HEApplication.h */,
-				D14877A622339DC600FB5279 /* HEApplication.m */,
+				D14877A522339DC600FB5279 /* HEAnimatedDesktop.h */,
+				D14877A622339DC600FB5279 /* HEAnimatedDesktop.m */,
 				E29230CD22832CF800C0E5AF /* HEConfig.h */,
+				E293ADE622C7E6AA00D69614 /* HEPrint.h */,
+				E293ADE522C7E6AA00D69614 /* HEPrint.m */,
 			);
 			path = AnimatedDesktop;
 			sourceTree = "<group>";
@@ -127,7 +132,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FDDB62223398B7006AA6A1 /* main.m in Sources */,
-				D14877A722339DC600FB5279 /* HEApplication.m in Sources */,
+				E293ADE722C7E6AA00D69614 /* HEPrint.m in Sources */,
+				D14877A722339DC600FB5279 /* HEAnimatedDesktop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
