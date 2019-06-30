@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <AVKit/AVKit.h>
-#import "HEConfig.h"
 #import "HEPrint.h"
+#import "HEConst.h"
 #import "HEAnimatedDesktop.h"
 
 @interface HEAnimatedDesktop ()
@@ -51,7 +51,7 @@
 - (void)runAnimatedDesktop {
     [self setupWindow];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loopPlay) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(loopNotify:) name:kHEAppName object:nil];
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(loopNotify:) name:HEAppName object:nil];
     [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
     [NSApp run];
 }
@@ -61,7 +61,7 @@
     self.playerView = [AVPlayerView new];
     self.player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:self.videoPath]];
     
-    self.window.title = kHEAppName;
+    self.window.title = HEAppName;
     self.window.ignoresMouseEvents = YES;
     self.window.level = kCGDesktopIconWindowLevel - 1;
     [self.window center];
@@ -86,7 +86,7 @@
 
 - (void)loopNotify:(NSNotification *)notification {
     NSString *object = notification.object;
-    NSArray<NSString *> *args = [object componentsSeparatedByString:kHEArgumentSeparator];
+    NSArray<NSString *> *args = [object componentsSeparatedByString:HEArgumentSeparator];
     NSUInteger argsCount = args.count;
     NSString *cmdMode = args[0];
     

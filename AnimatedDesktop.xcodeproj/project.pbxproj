@@ -10,6 +10,7 @@
 		D14877A722339DC600FB5279 /* HEAnimatedDesktop.m in Sources */ = {isa = PBXBuildFile; fileRef = D14877A622339DC600FB5279 /* HEAnimatedDesktop.m */; };
 		D1FDDB62223398B7006AA6A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDB61223398B7006AA6A1 /* main.m */; };
 		E293ADE722C7E6AA00D69614 /* HEPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E293ADE522C7E6AA00D69614 /* HEPrint.m */; };
+		E2E47BB322C89859008BDC79 /* HEConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E47BB222C89859008BDC79 /* HEConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,9 +30,10 @@
 		D14877A622339DC600FB5279 /* HEAnimatedDesktop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEAnimatedDesktop.m; sourceTree = "<group>"; };
 		D1FDDB5E223398B7006AA6A1 /* AnimatedDesktop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AnimatedDesktop; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FDDB61223398B7006AA6A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E29230CD22832CF800C0E5AF /* HEConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEConfig.h; sourceTree = "<group>"; };
 		E293ADE522C7E6AA00D69614 /* HEPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEPrint.m; sourceTree = "<group>"; };
 		E293ADE622C7E6AA00D69614 /* HEPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEPrint.h; sourceTree = "<group>"; };
+		E2E47BAD22C89788008BDC79 /* HEConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEConst.h; sourceTree = "<group>"; };
+		E2E47BB222C89859008BDC79 /* HEConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEConst.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +69,10 @@
 				D1FDDB61223398B7006AA6A1 /* main.m */,
 				D14877A522339DC600FB5279 /* HEAnimatedDesktop.h */,
 				D14877A622339DC600FB5279 /* HEAnimatedDesktop.m */,
-				E29230CD22832CF800C0E5AF /* HEConfig.h */,
 				E293ADE622C7E6AA00D69614 /* HEPrint.h */,
 				E293ADE522C7E6AA00D69614 /* HEPrint.m */,
+				E2E47BAD22C89788008BDC79 /* HEConst.h */,
+				E2E47BB222C89859008BDC79 /* HEConst.m */,
 			);
 			path = AnimatedDesktop;
 			sourceTree = "<group>";
@@ -100,7 +103,7 @@
 		D1FDDB56223398B7006AA6A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = He55;
 				TargetAttributes = {
 					D1FDDB5D223398B7006AA6A1 = {
@@ -132,8 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FDDB62223398B7006AA6A1 /* main.m in Sources */,
-				E293ADE722C7E6AA00D69614 /* HEPrint.m in Sources */,
 				D14877A722339DC600FB5279 /* HEAnimatedDesktop.m in Sources */,
+				E293ADE722C7E6AA00D69614 /* HEPrint.m in Sources */,
+				E2E47BB322C89859008BDC79 /* HEConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +258,7 @@
 		D1FDDB66223398B7006AA6A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -262,6 +267,7 @@
 		D1FDDB67223398B7006AA6A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

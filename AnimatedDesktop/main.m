@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HEConfig.h"
 #import "HEPrint.h"
+#import "HEConst.h"
 #import "HEAnimatedDesktop.h"
 
 static BOOL appRun(void);
@@ -42,8 +42,8 @@ int main(int argc, const char * argv[]) {
                 [args addObject:@(argv[i])];
             }
             
-            NSString *argsString = [args componentsJoinedByString:kHEArgumentSeparator];
-            [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kHEAppName object:argsString userInfo:nil deliverImmediately:YES];
+            NSString *argsString = [args componentsJoinedByString:HEArgumentSeparator];
+            [[NSDistributedNotificationCenter defaultCenter] postNotificationName:HEAppName object:argsString userInfo:nil deliverImmediately:YES];
             return 0;
         }
         
@@ -61,12 +61,12 @@ int main(int argc, const char * argv[]) {
         
         // 运行模式检查
         NSString *runMode = @(argv[argc - 1]);
-        if (![runMode isEqualToString:kHERunMode]) {
+        if (![runMode isEqualToString:HERunMode]) {
             NSMutableArray<NSString *> *args = [NSMutableArray new];
             for (int i = 1; i < argc; i++) {
                 [args addObject:@(argv[i])];
             }
-            [args addObject:kHERunMode];
+            [args addObject:HERunMode];
             
             NSTask *task = [NSTask new];
             task.executableURL = mainBundle.executableURL;
@@ -97,7 +97,7 @@ static BOOL appRun(void) {
     
     // 查找进程 pid 的 shell 命令
     NSString *cmd = @"ps ax -o pid,command | grep '$flag' | grep -v 'grep' | awk '{print $1}'";
-    NSString *fcmd = [cmd stringByReplacingOccurrencesOfString:@"$flag" withString:kHERunMode];
+    NSString *fcmd = [cmd stringByReplacingOccurrencesOfString:@"$flag" withString:HERunMode];
     
     task.executableURL = [NSURL fileURLWithPath:@"/bin/bash"];
     task.arguments = @[@"-c", fcmd];
