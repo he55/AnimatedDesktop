@@ -7,7 +7,6 @@
 //
 
 #import "HEConst.h"
-#import <Foundation/Foundation.h>
 
 NSString * const HEAppName = @"AnimatedDesktop";
 NSString * const HERunMode = @"mode=isBackground";
