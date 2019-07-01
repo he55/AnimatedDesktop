@@ -8,11 +8,11 @@
 
 #import "HEPrint.h"
 
-#define __printf_ex(file, format, line)\
-va_list arguments;\
-va_start(arguments, (format));\
-printf_ex((file), (format), (line), arguments);\
-va_end(arguments);
+#define __printf_ex(file, format, line) \
+va_list arguments; \
+va_start(arguments, format); \
+printf_ex(file, format, line, arguments); \
+va_end(arguments)
 
 static void printf_ex(FILE *file, NSString *format, BOOL line, va_list arguments) {
     if (line) {
