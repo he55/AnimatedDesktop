@@ -8,19 +8,19 @@
 
 #import "HEPrint.h"
 
-#define __printf_ex(file, format, line) \
-va_list arguments; \
-va_start(arguments, format); \
-printf_ex(file, format, line, arguments); \
-va_end(arguments)
+#define __printf_ex(file, format, isLine) \
+        va_list arguments; \
+        va_start(arguments, format); \
+        printf_ex(file, format, isLine, arguments); \
+        va_end(arguments)
 
-static void printf_ex(FILE *file, NSString *format, BOOL line, va_list arguments) {
-    if (line) {
+static void printf_ex(FILE *file, NSString *format, BOOL isLine, va_list arguments) {
+    if (isLine) {
         format = [format stringByAppendingString:@"\n"];
     }
     
-    NSString *msg = [[NSString alloc] initWithFormat:format arguments:arguments];
-    fprintf(file, "%s", [msg UTF8String]);
+    NSString *formatString = [[NSString alloc] initWithFormat:format arguments:arguments];
+    fprintf(file, "%s", [formatString UTF8String]);
 }
 
 void HEPrint(NSString *format, ...) {

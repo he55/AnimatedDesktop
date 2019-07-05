@@ -26,11 +26,17 @@ int main(int argc, const char * argv[]) {
         }
         
         NSString *cmdMode = @(argv[1]);
-        if (![cmdMode isEqualToString:@"play"] &&
-            ![cmdMode isEqualToString:@"pause"] &&
-            ![cmdMode isEqualToString:@"volume"] &&
-            ![cmdMode isEqualToString:@"muted"] &&
-            ![cmdMode isEqualToString:@"exit"]) {
+        if ([cmdMode isEqualToString:@"-h"] ||
+            [cmdMode isEqualToString:@"--help"]) {
+            printHelp();
+            return 0;
+        }
+        
+        if (![cmdMode isEqualToString:@"--play"] &&
+            ![cmdMode isEqualToString:@"--pause"] &&
+            ![cmdMode isEqualToString:@"--volume"] &&
+            ![cmdMode isEqualToString:@"--muted"] &&
+            ![cmdMode isEqualToString:@"--exit"]) {
             printHelp();
             return -1;
         }
@@ -42,13 +48,13 @@ int main(int argc, const char * argv[]) {
                 [args addObject:@(argv[i])];
             }
             
-            NSString *argsString = [args componentsJoinedByString:HEArgumentSeparator];
-            [[NSDistributedNotificationCenter defaultCenter] postNotificationName:HEAppName object:argsString userInfo:nil deliverImmediately:YES];
+            NSString *argString = [args componentsJoinedByString:HEArgumentSeparator];
+            [[NSDistributedNotificationCenter defaultCenter] postNotificationName:HEAppName object:argString userInfo:nil deliverImmediately:YES];
             return 0;
         }
         
         if (argc < 3 ||
-            ![cmdMode isEqualToString:@"play"]) {
+            ![cmdMode isEqualToString:@"--play"]) {
             printHelp();
             return -1;
         }
@@ -123,5 +129,15 @@ static BOOL appRun(void) {
 }
 
 static void printHelp(void) {
-    HEPrintln(@"arguments error.");
+    char *help =
+        "Usage: AnimatedDesktop [options] \n"
+        "Animated desktop application. \n"
+        "   --play FILE \n"
+        "   --pause \n"
+        "   --volume VALUE \n"
+        "   --muted \n"
+        "   --exit         exit application \n"
+        "   -h, --help     prints usage information \n";
+    
+    printf("%s", help);
 }

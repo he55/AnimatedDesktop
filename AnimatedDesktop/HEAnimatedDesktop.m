@@ -42,8 +42,8 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.videoPath = @"";
-        self.muted = YES;
+        _videoPath = @"";
+        _muted = YES;
     }
     return self;
 }
@@ -94,7 +94,7 @@
     HEPrintln(@"object = \"%@\"", object);
     
     // 命令处理
-    if ([cmdMode isEqualToString:@"play"]) {
+    if ([cmdMode isEqualToString:@"--play"]) {
         if (argsCount == 1) {
             [self.player play];
         } else if (argsCount == 2) {
@@ -105,23 +105,23 @@
             AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL fileURLWithPath:videoPath]];
             [self.player replaceCurrentItemWithPlayerItem:playerItem];
         }
-    } else if ([cmdMode isEqualToString:@"pause"]) {
+    } else if ([cmdMode isEqualToString:@"--pause"]) {
         if (argsCount == 1) {
             [self.player pause];
         }
-    } else if ([cmdMode isEqualToString:@"volume"]) {
+    } else if ([cmdMode isEqualToString:@"--volume"]) {
         if (argsCount == 1) {
             self.player.volume = 1.0;
         } else if (argsCount == 2) {
             self.player.volume = args[1].floatValue;
         }
-    } else if ([cmdMode isEqualToString:@"muted"]) {
+    } else if ([cmdMode isEqualToString:@"--muted"]) {
         if (argsCount == 1) {
             self.player.muted = !self.player.isMuted;
         } else if (argsCount == 2) {
             self.player.muted = args[1].boolValue;
         }
-    } else if ([cmdMode isEqualToString:@"exit"]) {
+    } else if ([cmdMode isEqualToString:@"--exit"]) {
         if (argsCount == 1) {
             exit(EXIT_SUCCESS);
         }
